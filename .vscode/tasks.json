@@ -1,0 +1,58 @@
+{
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "编译cpp文件生成exe文件",
+			"command": "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\bin\\g++.exe",
+			"args": [
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\exes\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "调试器生成的任务。"
+		},
+		{
+			"type": "shell",
+			"label": "编译cpp文件生成exe文件，并重定向输入输出", // 使用g++编译程序，令生可执行文件生成在exes文件夹中，并使用重定向完成输入输出
+			"command": "g++ -std=c++11 -finput-charset=UTF-8 -fexec-charset=GBK -g ${file} -o ${fileDirname}\\exes\\${fileBasenameNoExtension}.exe ; cat ${fileDirname}\\input | ${fileDirname}\\exes\\${fileBasenameNoExtension}.exe > ${fileDirname}\\output",
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+		{
+			"type": "shell",
+			"label": "clear exes", // 清空工作区内所有的exe文件
+			"command": "rm ${fileDirname}\\exes\\*.exe",
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+        {
+            "type": "shell",
+            "label": "clean output", // 清空output文件
+            "command": "' ' > ${workspaceRoot}\\output "
+        },
+        {
+            "label": "clean and run",
+            "dependsOn": [  // 先执行"clean output"任务，再执行"g++.exe build and run with redirection"任务
+                "clean output",
+                "编译cpp文件生成exe文件，并重定向输入输出"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+	],
+	"version": "2.0.0"
+}
