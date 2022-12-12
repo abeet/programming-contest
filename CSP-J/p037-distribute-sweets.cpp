@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    cout << "输入a,b,c,d,e 5个小朋友的初始糖果\n ";
+    cout << "输入a,b,c,d,e 5个小朋友的初始糖果 ";
     int a, b, c, d, e;
     cin >> a >> b >> c >> d >> e;
     a = a / 3;

@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    cout << "输入一个大于100小于99999999的数\n ";
+    cout << "输入一个大于100小于99999999的数 ";
     int n;
     cin >> n;
     if (n < 100 || n > 99999999)
@@ -15,11 +15,13 @@ int main()
         cout << "不是大于100小于99999999的数！";
         return 0;
     }
+    string num_str = to_string(n);
+
     stringstream ss;
     ss << n;
-    std::string s = ss.str();
+    string s = ss.str();
     cout << "反转之后";
-    std::reverse(s.begin(),s.end());
+    reverse(s.begin(),s.end());
     cout << s << endl;
     return 0;
 }

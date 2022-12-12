@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    cout << "输入一个3位数\n ";
+    cout << "输入一个3位数 ";
     int n;
     cin >> n;
     if (n < 100 || n > 999)

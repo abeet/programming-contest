@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     int price = 10;
-    cout << "票价10元，请问你要买几张票？\n ";
+    cout << "票价10元，请问你要买几张票？ ";
     int n;
     cin >> n;
     int all = price * n;
